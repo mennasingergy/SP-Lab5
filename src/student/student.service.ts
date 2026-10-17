@@ -14,16 +14,16 @@ export class StudentService {
     const user = await newStudent.save();
     return user; // Save it to the database
   }
-  async findByName(username: string): Promise<studentDocument | null> {
-    return await this.studentModel.findOne({ username }); // Fetch a student by username
+  async findByName(name: string): Promise<studentDocument | null> {
+    return await this.studentModel.findOne({ name });
   }
   async findByEmail(email: string): Promise<studentDocument | null> {
     const user = await this.studentModel.findOne({ email });
-    return user; // Fetch a student by username
+    return user;
   }
   // Get all students
   async findAll(): Promise<studentDocument[]> {
-    const students = await this.studentModel.find(); // Fetch all students from the database
+    const students = await this.studentModel.find(); 
     console.log(students);
     return students;
   }

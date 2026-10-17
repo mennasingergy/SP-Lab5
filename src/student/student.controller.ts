@@ -36,6 +36,13 @@ export class StudentController {
     return student;
   }
 
+  @Get('name/:name')
+  async getStudentByName(
+    @Param('name') name: string,
+  ): Promise<student | null> {
+    return await this.studentService.findByName(name);
+  }
+
   @Roles(Role.User)
   @UseGuards(authorizationGaurd)
   @Get(':id') // /student/:id

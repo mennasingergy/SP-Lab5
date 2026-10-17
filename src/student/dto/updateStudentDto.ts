@@ -7,6 +7,6 @@ export class updateStudentDto {
 
   @IsOptional()
   @IsInt()
-  @Min(0)
+  @Min(20)
   age?: number;
 }
